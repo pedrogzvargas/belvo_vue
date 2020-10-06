@@ -1,5 +1,15 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <Logo/>
+    <h1>Este proyecto pretende ser un front para el PIT</h1>
   </div>
 </template>
+
+<script>
+  import Logo from '@/components/Logo'
+  export default {
+    components: {
+      Logo
+    }
+  }
+</script>
