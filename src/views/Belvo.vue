@@ -12,7 +12,8 @@ export default {
   head() {
     return {
       script: [
-        {src: 'https://cdn.belvo.io/belvo-widget-1-stable.js'},
+        // {src: 'https://cdn.belvo.io/belvo-widget-1-stable.js'}, // PRODUCTION
+        {type: 'text/javascript', src: 'https://cdn.belvo.io/belvo-widget-sandbox-1-stable.js'} // SANDBOX
       ]
     }
   },
@@ -27,10 +28,22 @@ export default {
         //institution_types: ['fiscal', 'retail', 'business', 'gig'], // to select the type of institution to show in the widget
         // access_mode: "recurrent", // to specify the type of link to be created from the widget
         country_codes: ['MX', 'CO', 'BR'],
-        // callback: (link, institution) => this.successCallbackFunction(link, institution),
-        // onExit: (data) => this.onExitCallbackFunction(data),
-        // onEvent: (data) => this.onEventCallbackFunction(data)
+        callback: (link, institution) => this.successCallbackFunction(link, institution),
+        onExit: (data) => this.onExitCallbackFunction(data),
+        onEvent: (data) => this.onEventCallbackFunction(data)
       }).build();
+    },
+    successCallbackFunction(link, institution){
+      console.log(link);
+      console.log(institution);
+    },
+    onExitCallbackFunction(data) {
+      console.log(data);
+      console.log("onExitCallbackFunction");
+    },
+    onEventCallbackFunction(data){
+      console.log(data);
+      console.log("onEventCallbackFunction");
     }
   }
 }

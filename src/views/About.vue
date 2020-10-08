@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <Logo/>
-    <h1>Este proyecto pretende ser un front para el PIT</h1>
+    <h1>Proyecto base de Vue</h1>
   </div>
 </template>
 
